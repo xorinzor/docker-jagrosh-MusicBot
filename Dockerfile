@@ -1,9 +1,8 @@
-FROM java:8-alpine
+FROM openjdk:8
 
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache python3 curl bash && \
-    python3 -m ensurepip
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y python3 python3-pip curl bash
 
 # Print the Java and Python version. Useful when inspecting the build logs.
 RUN java -version
@@ -15,7 +14,7 @@ WORKDIR /opt/app
 COPY scripts/ scripts/
 
 # Download the application.
-RUN curl -L https://github.com/jagrosh/MusicBot/releases/download/0.2.1/JMusicBot-0.2.1-Linux.jar > JMusicBot.jar
+RUN curl -L https://github.com/jagrosh/MusicBot/releases/download/0.2.2/JMusicBot-0.2.2-Linux.jar > JMusicBot.jar
 
 # Construct the configuration file.
 RUN mkdir -p /opt/app/config
