@@ -14,7 +14,7 @@ WORKDIR /opt/app
 COPY scripts/ scripts/
 
 # Download the application.
-RUN curl -L https://github.com/jagrosh/MusicBot/releases/download/0.2.4/JMusicBot-0.2.4-Linux.jar > JMusicBot.jar
+RUN curl -L https://github.com/jagrosh/MusicBot/releases/download/0.2.5/JMusicBot-0.2.5-Linux.jar > JMusicBot.jar
 
 # We run the bot from a separate directory where we write the configuration file to.
 RUN mkdir -p /opt/app/config
